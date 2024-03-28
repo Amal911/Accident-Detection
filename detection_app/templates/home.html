@@ -1,7 +1,74 @@
-<!DOCTYPE html>
-<body>
-    <a href="{% url 'detect' %}">
-        <button>Detection</button>
-    </a>
-</body>
-</html>
+{% extends "default.html" %} {% load static %} 
+{% block page %}
+<div class="container-fluid ">
+    <div class="d-flex justify-content-around align-items-center " style="height: 90vh;">
+        <div class="text-start  d-flex flex-column gap-2 col-6">
+            <h1 id="heading">Accident <span>Detector</span></h1>
+            <div id="input">
+                <form method="post" enctype="multipart/form-data" class=" flex-column justify-content-center align-items-center">
+                    {% csrf_token %}
+                    <!-- {{ form.as_p }}   -->
+                    <div class="form-group mb-3">
+                        <input class="form-control" type="file" name="video" required id="id_video">
+                    </div>
+                    <button class="btn btn-secondary" type="submit" id="upload_btn">Upload</button>
+                </form>
+            </div>
+            <div id="loading">
+                <div class="loader m-auto"></div>
+                <div class="loader_uploading m-auto"></div>
+                <div class="loader_processing"></div>   
+            </div>
+        </div>
+        
+        <div class="d-flex flex-column justify-content-around align-items-center h-100 col-4" >
+            <div class="camera container-fluid form-group p-5">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      Camera 1
+                      <p>
+                        Address
+                    </p>
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" >
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        Camera 2
+                        <p>
+                            Address
+                        </p>
+                        
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" >
+                    <label class="form-check-label" for="flexRadioDefault3">
+                        Camera 3
+                        <p>
+                            Address
+                        </p>
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault4" >
+                    <label class="form-check-label" for="flexRadioDefault4">
+                        Camera 4
+                        <p>
+                            Address
+                        </p>
+                    </label>
+                  </div>
+            </div>
+            
+          
+        </div>
+        
+    </div>
+</div>
+<script src="{% static 'jquery-3.7.1.js' %}"></script>
+<script src="{% static 'Javascript/home.js' %}"></script>
+{% endblock %}
+
+
