@@ -6,8 +6,8 @@ import numpy as np
 
 from .LoadModel import AccidentDetectionModel
 
-json=r'.\detection_app\model.json'
-model_weight=r'.\detection_app\model_weights.h5'
+json=r'.\detection_app\accident_detection_model\model.json'
+model_weight=r'.\detection_app\accident_detection_model\model_weights.h5'
 model = AccidentDetectionModel(json, model_weight)
 font = cv2.FONT_HERSHEY_SIMPLEX
 frequency = 2000
