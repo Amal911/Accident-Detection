@@ -16,3 +16,9 @@ def home(request):
     else:
         form = UploadFileForm()
     return render(request,'home.html', {'form':form})
+from .utils import startapplication
+
+
+def detect(request):
+    startapplication()
+    return render(request,'home.html')
